@@ -1,0 +1,101 @@
+$font-family--main: 'Helvetica Neue', 'Helvetica', sans-serif;
+$font-family--head: 'Georgia', serif;
+
+$font-size--text: 16;
+$font-size--big: 21;
+$font-size--small: 12;
+$font-size--h1: 48;
+$font-size--h2: 36;
+$font-size--h3: 28;
+$font-size--h4: 18;
+
+$line-height--text: 25 / $font-size--text;
+$line-height--small: 15 / $font-size--small;
+$line-height--big: 30 / $font-size--big;
+$line-height--h1: 48 / $font-size--h1;
+$line-height--h2: 38 / $font-size--h2;
+
+html {
+  color: $color--black;
+  font-family: $font-family--main;
+  font-size: 100%;
+  line-height: $line-height--text;
+  letter-spacing: .0125rem;
+}
+
+%h1 {
+  font-size: rem($font-size--h1);
+  line-height: $line-height--h1;
+  margin-bottom: rem(30);
+  margin-top: rem(60);
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+%h2 {
+  font-size: rem($font-size--h2);
+  line-height: $line-height--h2;
+  margin-bottom: rem(30);
+  margin-top: rem(60);
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+%h3 {
+  font-size: rem($font-size--h3);
+  margin-bottom: rem(15);
+  margin-top: rem(30);
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+%h4 {
+  font-family: $font-family--head;
+  font-size: rem($font-size--h3);
+  margin-bottom: rem(15);
+  margin-top: rem(30);
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+p {
+  margin: 0 0 $padding--small;
+}
+
+a {
+  color: $color--action;
+
+  &:hover {
+    color: $color--gray;
+  }
+
+  &:focus {
+    color: $color--lightgray;
+  }
+
+  &.active {
+    color: $color--lightgray;
+  }
+}
+
+hr {
+  border-bottom: $base-border;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+
+// Example of extend
+
+%text {
+  h1 {
+    @extend %h1;
+  }
+}

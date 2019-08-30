@@ -1,0 +1,36 @@
+# System files
+# ------------
+
+Icon
+.DS_Store
+
+# Development
+# -----
+
+/node_modules
+/vendor
+
+# Temporary files
+# ---------------
+
+/composer.lock
+/yarn.lock
+
+/media/*
+!/media/index.html
+/assets
+/source/images/favicons
+/site/snippets/generated
+
+# -------------SECURITY-------------
+# NEVER publish these files via Git!
+# -------------SECURITY-------------
+
+# Accounts + Cache Files + Sessions
+# ---------------
+
+/storage
+
+# License
+# ---------------
+/site/config/.license
