@@ -15,6 +15,9 @@ return [
   //   'install' => true
   // ],
 
+  // Debug
+  'debug' => true,
+
   // Thumbnail options
   'thumbs' => require_once 'thumbs.php',
 

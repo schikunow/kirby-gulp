@@ -3,8 +3,9 @@ const
   dist = 'assets/',
   pkg = require('./package.json'),
 
-  localURL = '127.0.0.1:8000',
   faviconSnippet = 'favicon.html',
+
+  site = 'kirby-gulp';
 
   pngquant = require('imagemin-pngquant')
 ;
@@ -41,7 +42,7 @@ module.exports = {
     },
     prefix: {
       // For more options, see https://github.com/postcss/autoprefixer#options
-      browsers: [
+      overrideBrowserslist: [
         // For more browsers, see https://github.com/ai/browserslist
         '> 1%',
         'last 3 versions',
@@ -76,7 +77,7 @@ module.exports = {
     allowed: ['ttf', 'woff', 'woff2'], // For example, generating from OTF without shipping source files
   },
   server: {
-    enable: true,
+    enable: false,
     connect: {
       // For more options, see https://github.com/micahblu/gulp-connect-php#options
       base: '.',
@@ -85,10 +86,11 @@ module.exports = {
   },
   browsersync: {
     // For more options, see https://browsersync.io/docs/options
-    proxy: localURL,
+    proxy: 'http://' + site + '.test',
+    host: site + '.test',
+    open: 'external',
     port: 4000,
     notify: true,
-    open: true,
     online: false,
   },
   watch: {
@@ -130,14 +132,7 @@ module.exports = {
   subsetting: {
     // For more options, see https://github.com/filamentgroup/glyphhanger
     enable: true,
-    urls: [
-      // In combination with `spider: true`, this should be sufficient:
-      localURL, // Browsersync source
-      // Otherwise, add as many local/external files & URLs as you like:
-      // pkg.homepage,
-      // 'http://example.com',
-      // './example.html'
-    ],
+    url: 'http://' + site + '.test',
     formats: ['woff'], // Available formats: 'ttf', 'woff', 'woff-zopfli', 'woff2'
     spider: false,
     whitelist: false,

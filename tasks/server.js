@@ -8,19 +8,8 @@ const
   {parallel} = require('gulp'),
   conf = require('../config'),
 
-  browserSync = require('browser-sync').init,
-  php = require('gulp-connect-php')
+  browserSync = require('browser-sync').init
 ;
-
-
-/*
- * Starts a local development server (using PHP)
- */
-
-function connect() {
-  php.server(conf.server.connect);
-}
-
 
 /*
  * Starts a live reload proxy via Browsersync
@@ -37,7 +26,6 @@ function livereload() {
 
 if (conf.server.enable) {
   exports.server = parallel(
-    connect,
     livereload
   );
 } else {
